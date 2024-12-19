@@ -4,6 +4,7 @@
  */
 package agendaalineweb.controllers;
 import agendaalineweb.entities.Estilo;
+import agendaalineweb.entities.Usuario;
 import agendaalineweb.models.EstiloModel;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -45,8 +46,8 @@ public class EditarEstilo extends HttpServlet {
             //response.getWriter().println("Erro: Formulário não suporta envio de arquivos!");
             //return;
         //}
-
-        String caminhoAbsoluto = getServletContext().getRealPath("/" + UPLOAD_DIRECTORY);
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
+        String caminhoAbsoluto = getServletContext().getRealPath("/resources/imagens");
         Path pasta = Path.of(caminhoAbsoluto);
         if (!Files.exists(pasta)) {
             Files.createDirectories(pasta); // Cria a pasta caso não exista
@@ -59,7 +60,7 @@ public class EditarEstilo extends HttpServlet {
         String corSecundaria = null;
         String caminhoLogo = null;
         String caminhoFundo = null;
-        String caminhoImgLogin = null;
+        
 
         try {
             // Processa os itens do formulário
@@ -77,7 +78,7 @@ public class EditarEstilo extends HttpServlet {
                     // Processa os arquivos enviados
                     String nomeArquivo = new File(item.getName()).getName();
                     String caminhoSalvar = caminhoAbsoluto + File.separator + System.currentTimeMillis() + "_" + nomeArquivo;
-
+                    System.out.println("===================================== Caminho salvar: " + caminhoSalvar);
                     File arquivo = new File(caminhoSalvar);
                     item.write(arquivo); // Salva o arquivo
 
@@ -85,21 +86,20 @@ public class EditarEstilo extends HttpServlet {
                         caminhoLogo = caminhoSalvar;
                     } else if ("fundo".equals(item.getFieldName())) {
                         caminhoFundo = caminhoSalvar;
-                    } else if ("imgLogin".equals(item.getFieldName())) {
-                        caminhoImgLogin = caminhoSalvar;
                     }
                 }
             }
 
             // Cria o objeto Estilo
-            Estilo estilo = new Estilo(corPrimaria, corSecundaria, caminhoLogo, caminhoFundo, caminhoImgLogin);
+            Estilo estilo = new Estilo(corPrimaria, corSecundaria, caminhoLogo, caminhoFundo, usuario.getIdNegocio() );
 
             // Salva o estilo (a lógica de salvar depende da sua aplicação)
             EstiloModel estiloModel = new EstiloModel();
-            //estiloModel.salvar(estilo);
+            estiloModel.insert(estilo);
 
             response.getWriter().println("Upload realizado com sucesso!");
         } catch (Exception e) {
+            e.printStackTrace();
             response.getWriter().println("Erro ao processar o upload: " + e.getMessage());
         }
         

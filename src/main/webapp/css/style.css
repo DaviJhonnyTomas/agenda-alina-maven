@@ -95,7 +95,7 @@ body {
 
 #container-main {
     /* "../" serve para sair de uma pasta atual*/
-    background: url(../imgs/img-fundo.jpg);
+    /*background: url(../imgs/fundo-login.png);*/
     background-attachment: fixed;
     background-size: cover;
 }

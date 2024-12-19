@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Aline Simão</title>
+    <title>Agenda360</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -62,7 +62,7 @@
         }
 
         .login-form h2 {
-            color: #7a007d;
+            color: #000000;
             margin-bottom: 20px;
         }
 
@@ -73,9 +73,9 @@
         }
 
         .btn-primary {
-            background-color: #7a007d;
+            background-color: #000000;
             /* Cor de destaque da Aline */
-            border-color: #7a007d;
+            border-color: #000000;
             color: white;
             padding: 10px 20px;
             border-radius: 3px;
@@ -99,13 +99,13 @@
             min-height: 100%;
             display: flex;
             align-items: center;
-            background-color: #DEBDC6;
+            background-color: #000000;
 
         }
 
         #coluna-form {
             width: 100%;
-            background-image: url(imgs/fundo-tela-login.jpg);
+            background-image: url(imgs/fundo-login.png);
             
             background-size: cover;
             background-position: center;
@@ -125,6 +125,9 @@
         .col-md-7{
             padding: 0;
         }
+        .col-md-5{
+            padding-right: 0 !important;
+        }
     </style>
 </head>
 
@@ -133,7 +136,7 @@
         <div class="row">
             <div id="coluna-logo" class="col-md-5 ">
                 <div class="logo">
-                    <img src="imgs/img-aline-simao.jpg" alt="logo aline simao">
+                    <img src="imgs/logo360.png" alt="logo agenda 360">
                 </div>
             </div>
             <div id="coluna-form" class="col-md-7">

@@ -22,7 +22,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Agenda-Aline</title>
+        <title>${nomeNegocio}</title>
 
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -169,7 +169,7 @@
             <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
 
                 <a class="navbar-brand " href="${caminhoContexto}/listagem-agendamentos-dia">
-                    <img src="./imgs/img-aline-simao.jpg " alt="logotipo do site Aline Simão" id="img-logo">
+                    <img src="${imgLogo}" alt="logotipo do site" id="img-logo">
                 </a>
                 <!-- <button style="color: black;" class="navbar-toggler" type="button" data-toggle="collapse"
                      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
@@ -401,7 +401,7 @@
             </div>
         </div>
         <div id="footer" class="fixed-bottom text-center py-3">
-            <span class=" mx-auto">www.alinesimao.pt</span>
+            <span class=" mx-auto">www.agenda360.pt</span>
         </div>
 
     </body>

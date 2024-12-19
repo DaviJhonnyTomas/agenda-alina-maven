@@ -8,8 +8,11 @@ import agendaalineweb.entities.Agendamento;
 import agendaalineweb.entities.Cliente;
 import agendaalineweb.entities.Procedimento;
 import agendaalineweb.entities.Usuario;
+import agendaalineweb.entities.Estilo;
+
 import agendaalineweb.models.AgendamentoModel;
 import agendaalineweb.models.ClienteModel;
+import agendaalineweb.models.EstiloModel;
 import agendaalineweb.models.ProcedimentoModel;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -50,7 +53,14 @@ public class ListagemAgendamentosDoDia extends HttpServlet {
             request.setAttribute("procedimentos", procedimentos);
             ArrayList<Cliente> clientes = modelCliente.selectAll(usuario.getIdNegocio());
             request.setAttribute("clientes", clientes);
-
+            
+            EstiloModel estiloModel = new EstiloModel();
+            Estilo estilo = estiloModel.getEstiloByIdNegocio(usuario.getIdNegocio());
+            System.out.println("=========== Caminho da imagem de fundo: "+ estilo.getImagemFundo());
+            request.setAttribute("estilo", estilo);
+            
+            //paramos aqui: problema com \
+            request.setAttribute("imgFundo", estilo.getImagemFundo().replace(" \\ ", "/"));
             request.getRequestDispatcher("WEB-INF/agendamentosDoDia.jsp").forward(request, response);
 
         } else {

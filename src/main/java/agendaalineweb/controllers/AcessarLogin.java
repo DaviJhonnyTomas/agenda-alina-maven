@@ -32,6 +32,8 @@ public class AcessarLogin extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+        //Estilo estilo = estiloModel.getEstilo
+        
         request.getRequestDispatcher("WEB-INF/pageLogin.jsp").forward(request, response);
     
     }

@@ -4,10 +4,24 @@
  */
 package agendaalineweb.models;
 
+import agendaalineweb.daos.EstiloDao;
+import agendaalineweb.entities.Estilo;
+import java.sql.SQLException;
+
 /**
  *
  * @author Utilizador
  */
 public class EstiloModel {
+
+    public void insert(Estilo estilo) throws SQLException {
+        EstiloDao estiloDao = new EstiloDao();
+        estiloDao.insert(estilo);
+    }
+
+    public Estilo getEstiloByIdNegocio(int idNegocio) {
+        EstiloDao estiloDao = new EstiloDao();
+        return estiloDao.getEstiloByIdNegocio(idNegocio);
+    }
     
 }

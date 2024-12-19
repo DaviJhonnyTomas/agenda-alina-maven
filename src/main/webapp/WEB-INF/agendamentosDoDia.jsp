@@ -20,7 +20,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Agenda-Aline</title>
+        <title>${nomeNegocio}</title>
 
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -41,7 +41,7 @@
         <style>
             #container-main {
                 /* "../" serve para sair de uma pasta atual*/
-                background: url(./imgs/img-fundo.jpg);
+                /*background: url(./imgs/img-fundo.png);*/
                 background-attachment: fixed;
                 background-size: cover;
                 height: 100%;
@@ -69,7 +69,7 @@
             <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
 
                 <a class="navbar-brand " href="${caminhoContexto}/listagem-agendamentos-dia">
-                    <img src="./imgs/img-aline-simao.jpg " alt="logotipo do site Aline Simão" id="img-logo">
+                    <img src="${imgLogo}" alt="logotipo do site" id="img-logo">
                 </a>
                 <!-- <button style="color: black;" class="navbar-toggler" type="button" data-toggle="collapse"
                      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
@@ -124,11 +124,11 @@
                             <li>
                                 <div class="item-list-agendamento d-flex justify-content-between">
                                     <span class="subitem-agendamento">
-                                        <% 
-                                                        Agendamento agendamento = (Agendamento) pageContext.getAttribute("agendamento");
-                                                        ClienteModel clienteModel = new ClienteModel();
-                                                        Cliente cliente = clienteModel.selectById(agendamento.getIdCliente());
-                                                        pageContext.setAttribute("cliente", cliente);
+                                        <%
+                                            Agendamento agendamento = (Agendamento) pageContext.getAttribute("agendamento");
+                                            ClienteModel clienteModel = new ClienteModel();
+                                            Cliente cliente = clienteModel.selectById(agendamento.getIdCliente());
+                                            pageContext.setAttribute("cliente", cliente);
                                         %>
 
                                         ${cliente.nome}
@@ -136,11 +136,10 @@
                                     <span class="subitem-agendamento">${agendamento.data}</span>
                                     <span class="subitem-agendamento">${agendamento.hora}</span>
                                     <span class="subitem-agendamento">
-                                        <% 
-                                                    
-                                                    Agendamento_ProcedimentoModel agProcedimentoModel = new Agendamento_ProcedimentoModel();
-                                                    ArrayList<Procedimento> procedimentos = agProcedimentoModel.getProcedimentosByIdAgendamento(agendamento.getId());
-                                                    pageContext.setAttribute("procedimentos", procedimentos);
+                                        <%
+                                            Agendamento_ProcedimentoModel agProcedimentoModel = new Agendamento_ProcedimentoModel();
+                                            ArrayList<Procedimento> procedimentos = agProcedimentoModel.getProcedimentosByIdAgendamento(agendamento.getId());
+                                            pageContext.setAttribute("procedimentos", procedimentos);
                                         %>
                                         <ul>
 
@@ -156,8 +155,8 @@
                                     </span>
                                     <%
                                         double somaValoresProcedimentos = 0;
-                                        for(Procedimento procedimento : procedimentos){
-                                           somaValoresProcedimentos = somaValoresProcedimentos + procedimento.getValor();
+                                        for (Procedimento procedimento : procedimentos) {
+                                            somaValoresProcedimentos = somaValoresProcedimentos + procedimento.getValor();
                                         }
                                         pageContext.setAttribute("somaValoresProcedimentos", somaValoresProcedimentos);
                                     %>     
@@ -170,8 +169,20 @@
             </div>
         </div>
         <div id="footer" class="fixed-bottom text-center py-3">
-            <span class=" mx-auto">www.alinesimao.pt</span>
+            <span class=" mx-auto">www.agenda360.pt</span>
         </div>
+
+
+        <script>
+            const element = document.getElementById("container-main");
+            
+            if (element) {
+                 console.log("cheguei aqui");
+                element.style.backgroundImage = 'imgs/fundo-login.png)';
+            } else {
+                console.warn(`Elemento não encontrado.`);
+            }
+        </script>
 
     </body>
 

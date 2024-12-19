@@ -14,35 +14,24 @@ public class Estilo {
     private String corSecundaria; 
     private String logo;
     private String imagemFundo;
-    private String imagemLogin;
+    private int idNegocio;
 
-    public Estilo(int id, String corPrimaria, String corSecundaria, String logo, String imagemFundo, String imagemLogin) {
+    public Estilo(int id, String corPrimaria, String corSecundaria, String logo, String imagemFundo, int idNegocio) {
         this.id = id;
         this.corPrimaria = corPrimaria;
         this.corSecundaria = corSecundaria;
         this.logo = logo;
         this.imagemFundo = imagemFundo;
-        this.imagemLogin = imagemLogin;
+        this.idNegocio = idNegocio;
     }
 
-    public Estilo(String corPrimaria, String corSecundaria, String logo, String imagemFundo, String imagemLogin) {
+    public Estilo(String corPrimaria, String corSecundaria, String logo, String imagemFundo, int idNegocio) {
         this.corPrimaria = corPrimaria;
         this.corSecundaria = corSecundaria;
         this.logo = logo;
         this.imagemFundo = imagemFundo;
-        this.imagemLogin = imagemLogin;
-        
-        
+        this.idNegocio = idNegocio;
     }
-
-    public String getImagemLogin() {
-        return imagemLogin;
-    }
-
-    public void setImagemLogin(String imagemLogin) {
-        this.imagemLogin = imagemLogin;
-    }
-    
 
     public int getId() {
         return id;
@@ -84,6 +73,13 @@ public class Estilo {
         this.imagemFundo = imagemFundo;
     }
 
-    
+    public int getIdNegocio() {
+        return idNegocio;
+    }
+
+    public void setIdNegocio(int idNegocio) {
+        this.idNegocio = idNegocio;
+    }
+
     
 }
