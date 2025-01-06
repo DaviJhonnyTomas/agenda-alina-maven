@@ -61,6 +61,8 @@ public class ListagemAgendamentosDoDia extends HttpServlet {
             
             //paramos aqui: problema com \
             request.setAttribute("imgFundo", estilo.getImagemFundo().replace(" \\ ", "/"));
+            request.setAttribute("imgLogo", "/resources/imagens/1734551685798_Agenda_360-removebg-preview.png");
+
             request.getRequestDispatcher("WEB-INF/agendamentosDoDia.jsp").forward(request, response);
 
         } else {

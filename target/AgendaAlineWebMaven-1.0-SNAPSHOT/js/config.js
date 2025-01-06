@@ -5,7 +5,7 @@
 function applyBackground(seletor, caminhoImg) {
     const element = document.getElementById(seletor);
     if (element) {
-        element.style.backgroundImage = `url('${caminhoImg}')`;
+        element.style.backgroundImage = 'url('+caminhoImg+')';
         console.log(caminhoImg);
     } else {
         console.warn(`Elemento com o seletor "${seletor}" não encontrado.`);

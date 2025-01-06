@@ -69,7 +69,7 @@
             <nav class="navbar navbar-expand-lg navbar-light  mx-auto">
 
                 <a class="navbar-brand " href="${caminhoContexto}/listagem-agendamentos-dia">
-                    <img src="${imgLogo}" alt="logotipo do site" id="img-logo">
+                    <img src="${pageContext.request.contextPath}${imgLogo}" alt="logotipo do site" id="img-logo">
                 </a>
                 <!-- <button style="color: black;" class="navbar-toggler" type="button" data-toggle="collapse"
                      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
